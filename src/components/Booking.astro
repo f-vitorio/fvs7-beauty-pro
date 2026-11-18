@@ -1,0 +1,36 @@
+---
+import { salon } from "../config/salon"
+---
+
+<!-- Seção de agendamento -->
+<div class="space-y-6">
+  <!-- WhatsApp Fallback (sempre visível, Cal.com pode ser adicionado depois) -->
+  <div class="p-6 rounded-lg border border-gray-200" style="border-color: var(--secondary-color, #D4AF37);">
+    <div class="flex items-center gap-3">
+      <a 
+        href={`https://wa.me/${import.meta.env.PUBLIC_WHATSAPP_NUMBER || '5511999999999'}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20no%20Atelier%20Belle.`} 
+        class="inline-flex items-center gap-2 px-4 py-3 bg-primaryColor/10 text-primaryColor font-medium rounded hover:bg-primaryColor/20 transition-colors"
+        target="_blank"
+        rel="noopener"
+      >
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+          <circle cx="9" cy="21" r="1" />
+          <path d="M21 21v-2a4 4 0 0 0-3-3.87M21 21v-2a4 4 0 0 0-3-3.87M4.22 4.22l1.42 1.42M5.64 5.64l-1.42 1.42M15.5 15.5l1.42 1.42M19.5 19.5l1.42 1.42" />
+        </svg>
+        Agendar via WhatsApp
+      </a>
+    </div>
+    <p class="text-sm text-gray-500 mt-3">
+      Caso o WhatsApp não abra, ligue para: {import.meta.env.PUBLIC_WHATSAPP_NUMBER || '55 11 99999-9999'}
+    </p>
+  </div>
+  
+  <!-- Informação sobre Cal.com -->
+  <div class="pt-4 border-t border-gray-100">
+    <p class="text-sm text-gray-500">
+      Para integração com Cal.com, configure a variável de ambiente <code>PUBLIC_CALCOM_URL</code> e reinicie o servidor. 
+      <a href="/docs" class="hover:text-primaryColor transition-colors">Documentação de configuração</a>.
+    </p>
+  </div>
+</div>

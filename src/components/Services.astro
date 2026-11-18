@@ -1,0 +1,230 @@
+---
+import { salon } from "../config/salon"
+import { Service } from "../types"
+---
+
+<div class="space-y-12">
+  <!-- Serviço 1 -->
+  <div class="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow" style="border-color: var(--secondary-color, #D4AF37);">
+    <div class="relative h-64">
+      <img 
+        src="/services/hair-cut.jpg" 
+        alt="Cortes Femininos" 
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-primaryColor mb-2">Cortes Femininos</h3>
+      <p class="text-gray-600 text-sm mb-4">Corte clássico e moderno</p>
+      <div class="flex items-center justify-between">
+        <span class="text-lg font-medium">R$ 80,00</span>
+        <span class="text-sm text-gray-500">45 min</span>
+      </div>
+      <a 
+        href="/agendamento" 
+        class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-primaryColor/10 text-primaryColor font-medium rounded hover:bg-primaryColor/20 transition-colors"
+      >
+        Agendar
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M5 3h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Serviço 2 -->
+  <div class="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow" style="border-color: var(--secondary-color, #D4AF37);">
+    <div class="relative h-64">
+      <img 
+        src="/services/hair-treatment.jpg" 
+        alt="Hidratação" 
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-primaryColor mb-2">Hidratação</h3>
+      <p class="text-gray-600 text-sm mb-4">Tratamento de hidratação profunda</p>
+      <div class="flex items-center justify-between">
+        <span class="text-lg font-medium">R$ 120,00</span>
+        <span class="text-sm text-gray-500">60 min</span>
+      </div>
+      <a 
+        href="/agendamento" 
+        class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-primaryColor/10 text-primaryColor font-medium rounded hover:bg-primaryColor/20 transition-colors"
+      >
+        Agendar
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M5 3h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Serviço 3 -->
+  <div class="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow" style="border-color: var(--secondary-color, #D4AF37);">
+    <div class="relative h-64">
+      <img 
+        src="/services/coloring.jpg" 
+        alt="Coloração Completa" 
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-primaryColor mb-2">Coloração Completa</h3>
+      <p class="text-gray-600 text-sm mb-4">Coloração com produtos premium</p>
+      <div class="flex items-center justify-between">
+        <span class="text-lg font-medium">R$ 150,00</span>
+        <span class="text-sm text-gray-500">75 min</span>
+      </div>
+      <a 
+        href="/agendamento" 
+        class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-primaryColor/10 text-primaryColor font-medium rounded hover:bg-primaryColor/20 transition-colors"
+      >
+        Agendar
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M5 3h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Serviço 4 -->
+  <div class="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow" style="border-color: var(--secondary-color, #D4AF37);">
+    <div class="relative h-64">
+      <img 
+        src="/services/straightening.jpg" 
+        alt="Progressiva" 
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-primaryColor mb-2">Progressiva</h3>
+      <p class="text-gray-600 text-sm mb-4">Alisamento com tecnologia avançada</p>
+      <div class="flex items-center justify-between">
+        <span class="text-lg font-medium">R$ 350,00</span>
+        <span class="text-sm text-gray-500">3h</span>
+      </div>
+      <a 
+        href="/agendamento" 
+        class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-primaryColor/10 text-primaryColor font-medium rounded hover:bg-primaryColor/20 transition-colors"
+      >
+        Agendar
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M5 3h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Serviço 5 -->
+  <div class="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow" style="border-color: var(--secondary-color, #D4AF37);">
+    <div class="relative h-64">
+      <img 
+        src="/services/manicure.jpg" 
+        alt="Manicure Simples" 
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-primaryColor mb-2">Manicure Simples</h3>
+      <p class="text-gray-600 text-sm mb-4">Cuidados básicos unhas das mãos</p>
+      <div class="flex items-center justify-between">
+        <span class="text-lg font-medium">R$ 60,00</span>
+        <span class="text-sm text-gray-500">30 min</span>
+      </div>
+      <a 
+        href="/agendamento" 
+        class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-primaryColor/10 text-primaryColor font-medium rounded hover:bg-primaryColor/20 transition-colors"
+      >
+        Agendar
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M5 3h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Serviço 6 -->
+  <div class="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow" style="border-color: var(--secondary-color, #D4AF37);">
+    <div class="relative h-64">
+      <img 
+        src="/services/nail-extensions.jpg" 
+        alt="Alongamento de Unhas" 
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-primaryColor mb-2">Alongamento de Unhas</h3>
+      <p class="text-gray-600 text-sm mb-4">Alongamento com gel ou acrílico</p>
+      <div class="flex items-center justify-between">
+        <span class="text-lg font-medium">R$ 200,00</span>
+        <span class="text-sm text-gray-500">2h</span>
+      </div>
+      <a 
+        href="/agendamento" 
+        class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-primaryColor/10 text-primaryColor font-medium rounded:hover:bg-primaryColor/20 transition-colors"
+      >
+        Agendar
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M5 3h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Serviço 7 -->
+  <div class="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow" style="border-color: var(--secondary-color, #D4AF37);">
+    <div class="relative h-64">
+      <img 
+        src="/services/eyebrows.jpg" 
+        alt="Design e Depilação" 
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-primaryColor mb-2">Design e Depilação</h3>
+      <p class="text-gray-600 text-sm mb-4">Design de sobrancelha e depilação</p>
+      <div class="flex items-center justify-between">
+        <span class="text-lg font-medium">R$ 45,00</span>
+        <span class="text-sm text-gray-500">20 min</span>
+      </div>
+      <a 
+        href="/agendamento" 
+        class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-primaryColor/10 text-primaryColor font-medium rounded hover:bg-primaryColor/20 transition-colors"
+      >
+        Agendar
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M5 3h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Serviço 8 -->
+  <div class="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow" style="border-color: var(--secondary-color, #D4AF37);">
+    <div class="relative h-64">
+      <img 
+        src="/services/makeup.jpg" 
+        alt="Maquiagem Social" 
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-primaryColor mb-2">Maquiagem Social</h3>
+      <p class="text-gray-600 text-sm mb-4">Maquiagem para eventos e ocasiões especiais</p>
+      <div class="flex items-center justify-between">
+        <span class="text-lg font-medium">R$ 180,00</span>
+        <span class="text-sm text-gray-500">60 min</span>
+      </div>
+      <a 
+        href="/agendamento" 
+        class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-primaryColor/10 text-primaryColor font-medium rounded hover:bg-primaryColor/20 transition-colors"
+      >
+        Agendar
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M5 3h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>

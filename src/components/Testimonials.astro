@@ -1,0 +1,34 @@
+---
+import { salon } from "../config/s salon"
+
+const { primaryColor } = salon
+---
+
+<div class="py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-bold text-primaryColor mb-8">O que nossos clientes dizem</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      {#each [1, 2, 3] as index}
+      <div class="border rounded-lg p-6 bg-white hover:shadow-lg transition-shadow" style="border-color: var(--secondary-color, #D4AF37);">
+        <div class="flex items-center gap-3 mb-4">
+          <svg class="h-5 w-5 text-yellow-500" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 20v-6m4 4v6M6 4v6m4-4v6M6 8h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2zm7.71-7.71a3 3 0 0 1 0 4.24l-3.11 3.11 3.11 3.11a3 3 0 0 1-4.24 0l-1.61-1.61" />
+          </svg>
+        </div>
+        <p class="text-gray-600 text-sm line-clamp-3">"Deixe uma mensagem de depoimento fictício aqui para demonstração."</p>
+        <div class="mt-4 flex items-center gap-2">
+          <img 
+            src={`/testimonial${index}.jpg`} 
+            alt="Cliente" 
+            class="h-10 w-10 rounded-full object-cover"
+          />
+          <div>
+            <p class="font-medium">Cliente {index}</p>
+            <p class="text-xs text-gray-500">{index} de {index}</p>
+          </div>
+        </div>
+      </div>
+      {/each}
+    </div>
+  </div>
+</div>
