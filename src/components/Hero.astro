@@ -1,10 +1,9 @@
 ---
-import { salon } from "../config/salon"
-
-const { name, slogan } = salon
+import { salon } from "../config/s salon"
 ---
 
-<div class="relative min-h-[600px] bg-[url('/hero-bg.jpg')] bg-cover bg-center bg-no-repeat overflow-hidden">
+<!-- Hero Section - First Impactful Dobra -->
+<div class="relative min-h-[600px] bg-[url('/hero/placeholder.svg')] bg-cover bg-center bg-no-repeat overflow-hidden">
   <!-- Background overlay -->
   <div class="absolute inset-0 bg-black/30"></div>
   
@@ -14,25 +13,16 @@ const { name, slogan } = salon
         Beleza e sofisticação
       </div>
       <h1 class="text-5xl md:text-6xl font-bold text-white tracking-tight mb-6">
-        {name}
+        Atelier Belle
       </h1>
       <p class="text-white text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
-        {slogan}
+        Beleza, cuidado e sofisticação em cada detalhe. Um espaço exclusivo para quem valoriza a qualidade em cada fio, cada coloração e cada detalhe do seu visual.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a 
-          href="#servicos" 
-          class="inline-flex items-center gap-2 px-6 py-3 bg-white text-primaryColor font-medium rounded hover:bg-gray-100 transition-colors"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2">
-            <path d="M12 3v6l5 5M12 3l5 5M5 12h14M1.05 4.95l1.41 1.41M4.95 1.05l1.41 1.41M12 19v6M19 12h6M5 12 19 12"/>
-          </svg>
+        <a href="#servicos" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-primaryColor font-medium rounded hover:bg-gray-100 transition-colors">
           Conheça nossos serviços
         </a>
-        <a 
-          href="/agendamento" 
-          class="inline-flex items-center gap-2 px-6 py-3 border border-white text-white font-medium rounded hover:bg-white/20 transition-colors"
-        >
+        <a href="/agendamento" class="inline-flex items-center gap-2 px-6 py-3 border border-white text-white font-medium rounded hover:bg-white/20 transition-colors">
           Agendar horário
         </a>
       </div>

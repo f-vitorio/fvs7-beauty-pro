@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#FFB56B" />
+  <text x="200" y="100" font-family="Georgia, serif" font-size="30" fill="white" text-anchor="middle" dominant-baseline="middle">
+    J
+  </text>
+  <text x="200" y="180" font-family="Georgia, serif" font-size="25" fill="white" text-anchor="middle" dominant-baseline="middle">
+   ulia Alves
+  </text>
+  <text x="200" y="230" font-family="Georgia, serif" font-size="16" fill="#FFD93D" text-anchor="middle" dominant-baseline="middle">
+    anicure e Design
+  </text>
+</svg>
