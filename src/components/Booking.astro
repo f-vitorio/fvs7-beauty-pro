@@ -1,47 +1,75 @@
-<!-- Seção de Agendamento -->
-<section id="contato" class="py-24 bg-white">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-12">
-      <h2 class="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-4">Agende seu Horário</h2>
-      <p class="text-gray-600 text-lg">
-        Reserve seu momento de beleza conosco. Selecione o serviço desejado e escolha o melhor horário para sua visita ao Atelier Belle.
-      </p>
+---
+import { salon } from "../config/salon"
+
+const { whatsappNumber, address, hours, instagram } = salon
+const wa = whatsappNumber || "5511999999999"
+---
+
+<!-- Contato / Agendamento -->
+<section id="contato">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Agende seu horário</h2>
+      <p>Reserve seu momento de beleza conosco. Preencha o formulário e envie sua solicitação direto no WhatsApp.</p>
     </div>
-    
-    <div class="space-y-6">
-      <!-- WhatsApp com mensagem persuasiva -->
-      <div class="p-6 rounded-2xl border border-white/20" style="border-color: var(--secondary-color, #D4AF37);">
-        <div class="flex items-center gap-3 mb-4">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-            <circle cx="9" cy="21" r="1" />
-            <path d="M21 21v-2a4 4 0 0 0-3-3.87M21 21v-2a4 4 0 0 0-3-3.87M4.22 4.22l1.42 1.42M5.64 5.64l-1.42 1.42M15.5 15.5l1.42 1.42M19.5 19.5l1.42 1.42" />
-          </svg>
-          <div>
-            <p class="font-medium text-[#1A1A1A]">Fale conosco pelo WhatsApp</p>
-            <p class="text-sm text-gray-500">Resposta em até 15 minutos</p>
+    <div class="contact-box">
+      <div class="info-panel">
+        <h2>Fale conosco</h2>
+        <p>Resposta em até 15 minutos no horário de atendimento. Escolha o canal que preferir.</p>
+        <div class="info-list">
+          <div class="info-item">
+            <b>WhatsApp</b>
+            <span>{whatsappNumber || "55 11 99999-9999"}</span>
+          </div>
+          <div class="info-item">
+            <b>Endereço</b>
+            <span>{address}</span>
+          </div>
+          <div class="info-item">
+            <b>Horários</b>
+            <span>{hours}</span>
+          </div>
+          <div class="info-item">
+            <b>Instagram</b>
+            <a href={`https://instagram.com/${instagram || "atelierbelle"}`} target="_blank" rel="noopener">@{instagram || "atelierbelle"}</a>
           </div>
         </div>
-        <a href="https://wa.me/5511999999999?text=Olá! Gostaria de agendar um horário no Atelier Belle. Gostaria de serviços de cabelo e preciso de orientação sobre qual tratamento escolher. — Interesse em conhecer os profissionais." class="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 text-[#1A1A1A] font-medium rounded hover:bg-white/20 transition-colors" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 3h14M12 5l7 7-7 7"/>
-          </svg>
-          Iniciar Conversa
-        </a>
-        <p class="text-sm text-gray-500 mt-2">
-          Prefere falar diretamente? Ligue: <span class="font-medium">55 11 99999-9999</span>
-        </p>
       </div>
-      
-      <!-- Informação Cal.com -->
-      <div class="pt-4 border-t border-gray-100">
-        <p class="text-sm text-gray-500">
-          Para agendamento online direto, configure sua conta Cal.com e a URL será exibida aqui. O sistema permite visualizar disponibilidade em tempo real e confirmar horários instantaneamente.
-        </p>
-        <a href="#" class="hover:text-[#1A1A1A] transition-colors text-right smaller">
-            Saiba como configurar
-          </a>
-        </div>
+      <div class="form-card">
+        <h3>Envie sua solicitação</h3>
+        <form id="bookingForm" class="form-grid" data-wa={wa}>
+          <input type="text" name="nome" placeholder="Seu nome" required />
+          <input type="tel" name="telefone" placeholder="Telefone / WhatsApp" required />
+          <select name="servico" required>
+            <option value="" disabled selected>Escolha o serviço</option>
+            {salon.services.map((s) => (
+              <option value={s.name}>{s.name} — {s.price}</option>
+            ))}
+          </select>
+          <textarea name="mensagem" placeholder="Mensagem (opcional)"></textarea>
+          <button class="cta" type="submit">Enviar pelo WhatsApp</button>
+        </form>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById("bookingForm")
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault()
+    const f = form as HTMLFormElement
+    const data = new FormData(f)
+    const wa = f.dataset.wa
+    const msg = [
+      "Olá! Gostaria de agendar um horário no Atelier Belle.",
+      `Nome: ${data.get("nome")}`,
+      `Telefone: ${data.get("telefone")}`,
+      `Serviço: ${data.get("servico")}`,
+      data.get("mensagem") ? `Mensagem: ${data.get("mensagem")}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n")
+    window.open(`https://wa.me/${wa}?text=${encodeURIComponent(msg)}`, "_blank", "noopener")
+  })
+</script>

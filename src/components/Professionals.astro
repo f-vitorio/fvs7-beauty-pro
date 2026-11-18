@@ -1,87 +1,29 @@
-<!-- Profissionais Section -->
-<section id="profissionais" class="py-24 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-8">Nossos Profissionais</h2>
-    <p class="text-gray-600 text-lg mb-12 max-w-2xl mx-auto">
-      Cada profissional do Atelier Belle foi selecionado não apenas pela técnica impecável, mas pelo dom de transformar a autoestima de cada cliente. Conheça quem fará a diferença no seu visual.
-    </p>
-    <div class="grid md:grid-cols-3 gap-6">
-      
-      <!-- Profissional 1 -->
-      <div class="border rounded-2xl overflow-hidden hover:shadow-xl transition-shadow border-white/20 group-hover:border-white" style="border-color: var(--secondary-color, #D4AF37);">
-        <div class="h-64">
-          <img src="/professionals/mariana.svg" alt="Mariana Costa" class="w-full h-full object-cover">
-        </div>
-        <div class="p-6">
-          <h3 class="text-2xl font-bold text-[#1A1A1A] mb-3">Mariana Costa</h3>
-          <p class="text-gray-500 text-base mb-3">Cabelista Master</p>
-          <p class="text-gray-600 text-base mb-4">
-            Com mais de uma década de experiência no mercado, Mariana dominou a arte de transformar cabelos. Especialista em cortes femininos avançados e colorações técnicas, ela combina precisão artística com análise personalizada do tipo de fio e do desejo de cada cliente.
-          </p>
-          <div class="space-y-2">
-            <span class="inline-flex items-center gap-1 px-2 py-1 bg-white/10 text-[#1A1A1A] text-xs rounded">Cortes Femininos</span>
-            <span class="inline-flex items-center gap-1 px-2 py-1 bg-white/10 text-[#1A1A1A] text-xs rounded">Hidratação Avançada</span>
-            <span class="inline-flex items-center gap-1 px-2 py-1 bg-white/10 text-[#1A1A1A] text-xs rounded">Coloração Artística</span>
-          </div>
-          <a href="/agendamento" class="mt-4 w-full inline-flex items-center justify-center gap-2 px-4 py-2 bg-white/10 text-[#1A1A1A] font-medium rounded hover:bg-white/20 transition-colors">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 3h14M12 5l7 7-7 7"/>
-            </svg>
-            Agendar Consulta
-          </a>
-        </div>
-      </div>
+---
+import { salon } from "../config/salon"
+---
 
-      <!-- Profissional 2 -->
-      <div class="border rounded-2xl overflow-hidden hover:shadow-xl transition-shadow border-white/20 group-hover:border-white" style="border-color: var(--secondary-color, #D4AF37);">
-        <div class="h-64">
-          <img src="/professionals/roberta.svg" alt="Roberta Silva" class="w-full h-full object-cover">
-        </div>
-        <div class="p-6">
-          <h3 class="text-2xl font-bold text-[#1A1A1A] mb-3">Roberta Silva</h3>
-          <p class="text-gray-500 text-base mb-3">Colorista Master</p>
-          <p class="text-gray-600 text-base mb-4">
-            A referência em colorações avançadas na região. Roberta combina ciência e arte para criar cores que parecem viver. Especialista em mechas perfeitas, colorações vibrantes e tratamentos que deixam os cabelos mais saudáveis a cada sessão.
-          </p>
-          <div class="space-y-2">
-            <span class="inline-flex items-center gap-1 px-2 py-1 bg-white/10 text-[#1A1A1A] text-xs rounded">Coloração Completa</span>
-            <span class="inline-flex items-center gap-1 px-2 py-1 bg-white/10 text-[#1A1A1A] text-xs rounded">Mechas e Luzes</span>
-            <span class="inline-flex items-center gap-1 px-2 py-1 bg-white/10 text-[#1A1A1A] text-xs rounded">Correção de Tons</span>
+<!-- Profissionais -->
+<section id="profissionais" style="background: var(--soft);">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Nossos profissionais</h2>
+      <p>Cada profissional do Atelier Belle foi selecionado pela técnica impecável e pelo dom de transformar a autoestima de cada cliente.</p>
+    </div>
+    <div class="grid three">
+      {salon.professionals.map((prof) => (
+        <div class="card pro-card">
+          <img src={prof.image.replace(".jpg", ".svg")} alt={prof.name} />
+          <div class="pro-body">
+            <h3>{prof.name}</h3>
+            <p class="pro-role">{prof.specialty}</p>
+            <p>{prof.description}</p>
+            <div class="tags">
+              {prof.services.map((s) => <span class="tag">{s}</span>)}
+            </div>
+            <a class="cta" href="/agendamento">Agendar consulta</a>
           </div>
-          <a href="/agendamento" class="mt-4 w-full inline-flex items-center justify-center gap-2 px-4 py-2 bg-white/10 text-[#1A1A1A] font-medium rounded hover:bg-white/20 transition-colors">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 3h14M12 5l7 7-7 7"/>
-            </svg>
-            Agendar Consulta
-          </a>
         </div>
-      </div>
-
-      <!-- Profissional 3 -->
-      <div class="border rounded-2xl overflow-hidden hover:shadow-xl transition-shadow border-white/20 group-hover:border-white" style="border-color: var(--secondary-color, #D4AF37);">
-        <div class="h-64">
-          <img src="/professionals/julia.svg" alt="Julia Alves" class="w-full h-full object-cover">
-        </div>
-        <div class="p-6">
-          <h3 class="text-2xl font-bold text-[#1A1A1A] mb-3">Julia Alves</h3>
-          <p class="text-gray-500 text-base mb-3">Manicure e Design de Sobrancelhas</p>
-          <p class="text-gray-600 text-base mb-4">
-            Dedicação meticulosa para detalhes que impressionam. Julia entende que unhas e sobrancelhas são o quadro de moldura do rosto. Com técnica refinada e produtos de alta qualidade, ela cria looks que conectam elegância e saúde.
-          </p>
-          <div class="space-y-2">
-            <span class="inline-flex items-center gap-1 px-2 py-1 bg-white/10 text-[#1A1A1A] text-xs rounded">Manicure Clássica</span>
-            <span class="inline-flex items-center gap-1 px-2 py-1 bg-white/10 text-[#1A1A1A] text-xs rounded">Alongamento de Unhas</span>
-            <span class="inline-flex items-center gap-1 px-2 py-1 bg-white/10 text-[#1A1A1A] text-xs rounded">Design e Depilação de Sobrancelhas</span>
-          </div>
-          <a href="/agendamento" class="mt-4 w-full inline-flex items-center justify-center gap-2 px-4 py-2 bg-white/10 text-[#1A1A1A] font-medium rounded hover:bg-white/20 transition-colors">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 3h14M12 5l7 7-7 7"/>
-            </svg>
-            Agendar Consulta
-          </a>
-        </div>
-      </div>
-
+      ))}
     </div>
   </div>
 </section>

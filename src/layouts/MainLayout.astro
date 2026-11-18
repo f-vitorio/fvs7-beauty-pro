@@ -3,7 +3,8 @@ import Header from "../components/Header.astro"
 import { salon } from "../config/salon"
 import "../styles/global.css"
 
-const { name, description, whatsappNumber, instagram, address, hours, services, professionals } = salon
+const { name, description, whatsappNumber } = salon
+const wa = whatsappNumber || "5511999999999"
 ---
 
 <!DOCTYPE html>
@@ -14,6 +15,9 @@ const { name, description, whatsappNumber, instagram, address, hours, services, 
     <title>{name}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 
     <!-- Open Graph -->
     <meta property="og:title" content={name} />
@@ -30,47 +34,27 @@ const { name, description, whatsappNumber, instagram, address, hours, services, 
     <!-- Canonical -->
     <link rel="canonical" href="https://fvs7-beauty-pro.vercel.app" />
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body>
     <Header />
-    <main class="flex-1">
+    <main>
       <slot />
     </main>
-    <footer class="border-t border-gray-100 py-8 mt-auto bg-white">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h4 class="font-medium mb-4">{name}</h4>
-            <p class="text-gray-500 text-sm">{description}</p>
-          </div>
-          <div>
-            <h5 class="font-medium mb-4">Serviços</h5>
-            <ul class="text-sm text-gray-500">
-              {services.map((service) => (
-                <li>{service.name}</li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h5 class="font-medium mb-4">Profissionais</h5>
-            <ul class="text-sm text-gray-500">
-              {professionals.map((prof) => (
-                <li>{prof.name}</li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h5 class="font-medium mb-4">Contato</h5>
-            <ul class="text-sm text-gray-500">
-              <li><a href={`tel:${whatsappNumber || "5511999999999"}`} class="hover:text-[#1A1A1A] transition-colors">{whatsappNumber || "55 11 99999-9999"}</a></li>
-              <li><a href={`https://instagram.com/${instagram || "atelierbelle"}`} class="hover:text-[#1A1A1A] transition-colors" target="_blank" rel="noopener">Instagram</a></li>
-              <li>{address}</li>
-              <li>{hours}</li>
-            </ul>
-          </div>
+
+    <!-- Footer CTA -->
+    <section>
+      <div class="wrap">
+        <div class="footer-cta">
+          <h2>Pronta para o seu próximo visual?</h2>
+          <p>Reserve seu horário no Atelier Belle pelo WhatsApp. Respondemos rápido para garantir o seu momento de beleza.</p>
+          <a class="cta light" href={`https://wa.me/${wa}?text=Olá! Gostaria de agendar um horário no Atelier Belle.`} target="_blank" rel="noopener">Falar no WhatsApp</a>
         </div>
-        <div class="mt-8 pt-8 border-t border-gray-100 text-center text-sm text-gray-500">
-          <p>2024 Atelier Belle — Todos os direitos reservados</p>
-        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <span>© 2026 {name} — Todos os direitos reservados</span>
+        <span>Beleza • Cuidado • Sofisticação</span>
       </div>
     </footer>
   </body>

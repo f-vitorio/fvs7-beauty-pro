@@ -1,99 +1,31 @@
 ---
 import { salon } from "../config/salon"
+
+const { whatsappNumber } = salon
+const wa = whatsappNumber || "5511999999999"
+const { active = "home" } = Astro.props
 ---
 
-<header class="border-b border-gray-100 bg-white/95 backdrop-blur-sm sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <!-- Logo -->
-    <a href="/">
-      <img 
-        src={salon.logo}
-        alt={`${salon.name} logo`}
-        class="h-8 w-auto"
-      />
-    </a>
-
-    <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center gap-8">
-      <a href="/" class="text-[#1A1A1A] font-medium">Início</a>
-      <a href="#servicos" class="text-gray-600 hover:text-[#1A1A1A] font-medium">Serviços</a>
-      <a href="#profissionais" class="text-gray-600 hover:text-[#1A1A1A] font-medium">Profissionais</a>
-      <a href="#galeria" class="text-gray-600 hover:text-[#1A1A1A] font-medium">Galeria</a>
-      <a href="#contato" class="text-gray-600 hover:text-[#1A1A1A] font-medium">Contato</a>
-    </nav>
-
-    <!-- CTA Button - Agendar -->
-    <a 
-      href="/agendamento" 
-      class="inline-flex items-center gap-2 px-4 py-2 border border-white text-[#1A1A1A] font-medium rounded hover:bg-white/10 transition-colors"
-    >
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M5 3h14M12 5l7 7-7 7"/>
-      </svg>
-      Agendar horário
-    </a>
-
-    <!-- Mobile Menu Button -->
-    <button 
-      id="mobileMenuBtn" 
-      class="md:hidden p-2"
-      aria-label="Abrir menu"
-    >
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-6 w-6">
-        <line x1="3" y1="6" x2="21" y2="6"/>
-        <line x1="3" y1="12" x2="21" y2="12"/>
-        <line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
-    </button>
-  </div>
-
-  <!-- Mobile Menu -->
-  <nav id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur-sm border-t border-gray-100">
-    <div class="p-6">
-      <button
-        id="closeMobileMenuBtn"
-        class="absolute right-4 top-4 p-2"
-        aria-label="Fechar menu"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="18" y1="6" x2="6" y2="18"/>
-          <line x1="6" y1="6" x2="18" y2="18"/>
-        </svg>
-      </button>
-      <a href="/" class="block py-3 text-[#1A1A1A] font-medium hover:text-[#D4AF37] transition-colors">Início</a>
-      <a href="#servicos" class="block py-3 text-gray-600 hover:text-[#1A1A1A] font-medium transition-colors">Serviços</a>
-      <a href="#profissionais" class="block py-3 text-gray-600 hover:text-[#1A1A1A] font-medium transition-colors">Profissionais</a>
-      <a href="#galeria" class="block py-3 text-gray-600 hover:text-[#1A1A1A] font-medium transition-colors">Galeria</a>
-      <a href="#contato" class="block py-3 text-gray-600 hover:text-[#1A1A1A] font-medium transition-colors">Contato</a>
-      <div class="mt-6 pt-6 border-t border-gray-100">
-        <a 
-          href="/agendamento" 
-          class="block py-3 px-4 bg-[#1A1A1A] text-white font-medium rounded hover:bg-white/10 transition-colors"
-        >
-          Agendar horário
-        </a>
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="/">
+        <img src="/logo.svg" alt={`${salon.name} logo`} />
+        <span>{salon.name}</span>
+      </a>
+      <div class="links">
+        <a href="/" class={active === "home" ? "active" : ""}>Início</a>
+        <a href="/#servicos" class={active === "servicos" ? "active" : ""}>Serviços</a>
+        <a href="/#galeria" class={active === "galeria" ? "active" : ""}>Galeria</a>
+        <a href="/#profissionais" class={active === "profissionais" ? "active" : ""}>Profissionais</a>
+        <a href="/#contato" class={active === "contato" ? "active" : ""}>Contato</a>
       </div>
-    </div>
-  </nav>
+      <a
+        class="cta"
+        href={`https://wa.me/${wa}?text=Olá! Gostaria de agendar um horário no Atelier Belle.`}
+        target="_blank"
+        rel="noopener"
+      >Agendar no WhatsApp</a>
+    </nav>
+  </div>
 </header>
-
-<script>
-  // Mobile menu toggle
-  const mobileMenuBtn = document.getElementById('mobileMenuBtn')
-  const closeMobileMenuBtn = document.getElementById('closeMobileMenuBtn')
-  const mobileMenu = document.getElementById('mobileMenu')
-
-  if (mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.remove('hidden')
-      mobileMenu.classList.add('flex')
-    })
-  }
-
-  if (closeMobileMenuBtn && mobileMenu) {
-    closeMobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden')
-      mobileMenu.classList.remove('flex')
-    })
-  }
-</script>

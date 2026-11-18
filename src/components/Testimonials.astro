@@ -1,32 +1,47 @@
 ---
-const testimonials = [1, 2, 3]
+const testimonials = [
+  {
+    quote: "Atendimento impecável do início ao fim. Saí do salão me sentindo outra pessoa — o corte caiu exatamente como imaginei.",
+    name: "Camila R.",
+    role: "Cliente desde 2023",
+    initial: "C",
+  },
+  {
+    quote: "A coloração ficou viva e saudável por semanas. A equipe explica cada etapa e usa produtos de verdade. Recomendo demais.",
+    name: "Fernanda L.",
+    role: "Coloração premium",
+    initial: "F",
+  },
+  {
+    quote: "Ambiente lindo, pontualidade e um acabamento de unhas que dura semanas. Virou meu salão de confiança.",
+    name: "Patrícia M.",
+    role: "Manicure & design",
+    initial: "P",
+  },
+]
 ---
 
-<div class="py-24 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-8">O que nossos clientes dizem</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      {testimonials.map((index) => (
-        <div class="border rounded-lg p-6 bg-white hover:shadow-lg transition-shadow" style="border-color: var(--secondary-color, #D4AF37);">
-          <div class="flex items-center gap-3 mb-4">
-            <svg class="h-5 w-5 text-yellow-500" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M12 20v-6m4 4v6M6 4v6m4-4v6M6 8h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2zm7.71-7.71a3 3 0 0 1 0 4.24l-3.11 3.11 3.11 3.11a3 3 0 0 1-4.24 0l-1.61-1.61" />
-            </svg>
-          </div>
-          <p class="text-gray-600 text-sm line-clamp-3">"Deixe uma mensagem de depoimento fictício aqui para demonstração."</p>
-          <div class="mt-4 flex items-center gap-2">
-            <img
-              src={`/testimonial${index}.jpg`}
-              alt="Cliente"
-              class="h-10 w-10 rounded-full object-cover"
-            />
+<!-- Depoimentos -->
+<section>
+  <div class="wrap">
+    <div class="section-title">
+      <h2>O que nossos clientes dizem</h2>
+      <p>A confiança de quem já viveu a experiência Atelier Belle.</p>
+    </div>
+    <div class="grid three">
+      {testimonials.map((t) => (
+        <div class="card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">“{t.quote}”</p>
+          <div class="who">
+            <div class="avatar">{t.initial}</div>
             <div>
-              <p class="font-medium">Cliente {index}</p>
-              <p class="text-xs text-gray-500">{index} de {index}</p>
+              <b>{t.name}</b>
+              <span>{t.role}</span>
             </div>
           </div>
         </div>
       ))}
     </div>
   </div>
-</div>
+</section>

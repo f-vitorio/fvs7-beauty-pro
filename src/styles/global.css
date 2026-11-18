@@ -1,16 +1,351 @@
 @import "tailwindcss";
 
-/* Custom variables for the salon theme */
+/* ============================================================
+   Atelier Belle — design system inspirado em Clientoo Luxe Salon
+   ============================================================ */
+
 :root {
-  --primary-color: #1A1A1A;
-  --secondary-color: #D4AF37;
-  --accent-color: #FF6B6B;
-  --background-color: #F9F5EB;
+  --primary: #4a044e;
+  --accent: #c026d3;
+  --accent2: #f472b6;
+  --gold: #fbbf24;
+  --bg: #fff7fb;
+  --ink: #13051b;
+  --muted: #64748b;
+  --border: #ead7e7;
+  --soft: #fff0fa;
 }
 
-/* Custom base styles */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: var(--background-color, #F9F5EB);
-  color: var(--primary-color, #1A1A1A);
+  font-family: Inter, system-ui, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.65;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main { flex: 1; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+.wrap { width: min(1180px, 92%); margin: auto; }
+
+/* ---------- Header ---------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  font-size: 22px;
+  color: var(--primary);
+}
+.brand img { width: 42px; height: 42px; object-fit: contain; }
+.links { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.links a {
+  font-weight: 800;
+  font-size: 14px;
+  padding: 9px 13px;
+  border-radius: 999px;
+  color: #475569;
+}
+.links a.active,
+.links a:hover { background: var(--primary); color: white; }
+
+/* ---------- Buttons ---------- */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  cursor: pointer;
+  padding: 13px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: white;
+  font-weight: 900;
+  font-size: 15px;
+  font-family: inherit;
+  box-shadow: 0 14px 28px rgba(192, 38, 211, 0.22);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cta:hover { transform: translateY(-2px); box-shadow: 0 18px 34px rgba(192, 38, 211, 0.3); }
+.cta.light {
+  background: white;
+  color: var(--primary);
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+.cta.light:hover { box-shadow: 0 10px 24px rgba(74, 4, 78, 0.1); }
+
+/* ---------- Sections ---------- */
+section { padding: 72px 0; }
+
+.section-title { text-align: center; margin-bottom: 38px; }
+.section-title h2 {
+  font-size: clamp(32px, 5vw, 54px);
+  line-height: 1.05;
+  color: var(--primary);
+  letter-spacing: -1.8px;
+  font-weight: 900;
+}
+.section-title p {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 760px;
+  margin: 12px auto 0;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background:
+    radial-gradient(circle at 80% 10%, rgba(244, 114, 182, 0.22), transparent 32%),
+    linear-gradient(135deg, #fff7fb, #fff, #fdf2f8);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 36px;
+  align-items: center;
+}
+.badge {
+  display: inline-flex;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 13px;
+  font-weight: 900;
+  color: var(--accent);
+  margin-bottom: 18px;
+  font-size: 14px;
+}
+.hero h1 {
+  font-size: clamp(44px, 7vw, 84px);
+  line-height: 0.96;
+  letter-spacing: -3px;
+  color: var(--primary);
+  margin-bottom: 18px;
+  font-weight: 900;
+}
+.hero p {
+  font-size: 19px;
+  color: var(--muted);
+  max-width: 680px;
+  margin-bottom: 26px;
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.photo-main {
+  height: 470px;
+  border-radius: 34px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(74, 4, 78, 0.18);
+  position: relative;
+}
+.photo-main img { width: 100%; height: 100%; object-fit: cover; }
+.photo-main::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(74, 4, 78, 0.35), transparent 55%);
+}
+
+/* ---------- Grids ---------- */
+.grid { display: grid; gap: 24px; }
+.two { grid-template-columns: 1fr 1fr; }
+.three { grid-template-columns: repeat(3, 1fr); }
+.four { grid-template-columns: repeat(4, 1fr); }
+
+/* ---------- Cards ---------- */
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 26px;
+  box-shadow: 0 16px 40px rgba(74, 4, 78, 0.07);
+}
+.card h3 { font-size: 24px; color: var(--primary); margin-bottom: 8px; font-weight: 800; }
+.card p { color: var(--muted); }
+
+/* ---------- Tiles (gallery / links) ---------- */
+.tile {
+  display: block;
+  position: relative;
+  height: 260px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.1);
+  transition: 0.25s;
+}
+.tile:hover { transform: translateY(-6px); }
+.tile img { width: 100%; height: 100%; object-fit: cover; }
+.tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(74, 4, 78, 0.55), transparent 62%);
+}
+.tile b {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 2;
+  background: white;
+  color: var(--primary);
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 900;
+  font-size: 14px;
+}
+
+/* ---------- Price cards (services) ---------- */
+.price-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 30px;
+  box-shadow: 0 18px 44px rgba(74, 4, 78, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+.price-card.featured { border: 2px solid var(--accent); transform: translateY(-8px); }
+.price-card h3 { font-size: 25px; color: var(--primary); font-weight: 800; }
+.price { font-size: 42px; font-weight: 900; color: var(--primary); margin: 14px 0; line-height: 1; }
+.price small { font-size: 14px; color: var(--muted); font-weight: 700; }
+.price-card p { color: var(--muted); margin-bottom: 20px; flex: 1; }
+
+/* ---------- Professionals ---------- */
+.pro-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.pro-card > img { width: 100%; height: 230px; object-fit: cover; }
+.pro-body { padding: 26px; display: flex; flex-direction: column; flex: 1; }
+.pro-role { color: var(--accent); font-weight: 800; font-size: 14px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 20px; }
+.tag {
+  background: var(--soft);
+  border: 1px solid var(--border);
+  color: var(--primary);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 800;
+}
+.pro-body .cta { margin-top: auto; width: 100%; }
+
+/* ---------- Testimonials ---------- */
+.stars { color: var(--gold); letter-spacing: 3px; font-size: 18px; margin-bottom: 12px; }
+.quote { font-style: italic; color: #475569; }
+.who { display: flex; align-items: center; gap: 12px; margin-top: 18px; }
+.who .avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}
+.who b { display: block; color: var(--primary); }
+.who span { font-size: 13px; color: var(--muted); }
+
+/* ---------- Contact box ---------- */
+.contact-box {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 32px;
+  align-items: start;
+}
+.info-panel {
+  background: var(--primary);
+  color: white;
+  border-radius: 34px;
+  padding: 34px;
+  box-shadow: 0 24px 60px rgba(74, 4, 78, 0.18);
+}
+.info-panel h2 { font-size: 44px; line-height: 1.04; margin-bottom: 12px; font-weight: 900; letter-spacing: -1.5px; }
+.info-panel > p { color: rgba(255, 255, 255, 0.75); margin-bottom: 22px; }
+.info-list { display: grid; gap: 14px; }
+.info-item {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  padding: 15px;
+}
+.info-item b { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); margin-bottom: 4px; }
+.form-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 34px;
+  padding: 34px;
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.08);
+}
+.form-card h3 { font-size: 30px; color: var(--primary); margin-bottom: 18px; font-weight: 900; letter-spacing: -1px; }
+.form-grid { display: grid; gap: 14px; }
+input, select, textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 16px;
+  font: inherit;
+  background: #fff7fb;
+  outline: none;
+  color: var(--ink);
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(192, 38, 211, 0.09);
+  background: white;
+}
+textarea { min-height: 120px; resize: vertical; }
+
+/* ---------- Footer CTA ---------- */
+.footer-cta {
+  background: linear-gradient(135deg, var(--primary), #86198f);
+  color: white;
+  text-align: center;
+  border-radius: 34px;
+  padding: 48px;
+}
+.footer-cta h2 { font-size: clamp(30px, 4vw, 44px); font-weight: 900; letter-spacing: -1.5px; }
+.footer-cta p { color: rgba(255, 255, 255, 0.78); margin: 10px auto 22px; max-width: 760px; }
+
+/* ---------- Footer ---------- */
+footer {
+  padding: 28px 0;
+  background: #020617;
+  color: #94a3b8;
+}
+footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  nav { padding: 14px 0; align-items: flex-start; flex-direction: column; }
+  .hero-grid, .two, .three, .four, .contact-box { grid-template-columns: 1fr; }
+  .photo-main { height: 310px; }
+  .price-card.featured { transform: none; }
+  .hero h1 { letter-spacing: -1.6px; }
+  .links { gap: 4px; }
+  section { padding: 52px 0; }
 }
