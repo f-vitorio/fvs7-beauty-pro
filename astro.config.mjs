@@ -1,7 +1,9 @@
 import { defineConfig } from "astro/config"
-import tailwind from "@tailwindcss/vite"
+import tailwindcss from "@tailwindcss/vite"
 
 export default defineConfig({
-  integrations: [tailwind()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
   site: "https://fvs7-beauty-pro.vercel.app",
 })

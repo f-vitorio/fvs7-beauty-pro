@@ -1,5 +1,5 @@
 ---
-import { salon } from "../config/s salon"
+import { salon } from "../config/salon"
 ---
 
 <header class="border-b border-gray-100 bg-white/95 backdrop-blur-sm sticky top-0 z-50">
@@ -7,8 +7,8 @@ import { salon } from "../config/s salon"
     <!-- Logo -->
     <a href="/">
       <img 
-        src="{salon.logo}" 
-        alt="{salon.name} logo" 
+        src={salon.logo}
+        alt={`${salon.name} logo`}
         class="h-8 w-auto"
       />
     </a>
@@ -60,11 +60,11 @@ import { salon } from "../config/s salon"
           <line x1="6" y1="6" x2="18" y2="18"/>
         </svg>
       </button>
-      <Link href="/" class="block py-3 text-[#1A1A1A] font-medium hover:text-accentColor transition-colors">Início</Link>
-      <Link href="#servicos" class="block py-3 text-gray-600 hover:text-[#1A1A1A] font-medium transition-colors">Serviços</Link>
-      <Link href="#profissionais" class="block py-3 text-gray-600 hover:text-[#1A1A1A] font-medium transition-colors">Profissionais</Link>
-      <Link href="#galeria" class="block py-3 text-gray-600 hover:text-[#1A1A1A] font-medium transition-colors">Galeria</Link>
-      <Link href="#contato" class="block py-3 text-gray-600 hover:text-[#1A1A1A] font-medium transition-colors">Contato</Link>
+      <a href="/" class="block py-3 text-[#1A1A1A] font-medium hover:text-[#D4AF37] transition-colors">Início</a>
+      <a href="#servicos" class="block py-3 text-gray-600 hover:text-[#1A1A1A] font-medium transition-colors">Serviços</a>
+      <a href="#profissionais" class="block py-3 text-gray-600 hover:text-[#1A1A1A] font-medium transition-colors">Profissionais</a>
+      <a href="#galeria" class="block py-3 text-gray-600 hover:text-[#1A1A1A] font-medium transition-colors">Galeria</a>
+      <a href="#contato" class="block py-3 text-gray-600 hover:text-[#1A1A1A] font-medium transition-colors">Contato</a>
       <div class="mt-6 pt-6 border-t border-gray-100">
         <a 
           href="/agendamento" 

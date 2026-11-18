@@ -1,38 +1,16 @@
 ---
+import MainLayout from "../layouts/MainLayout.astro"
 import Hero from "../components/Hero.astro"
 import Services from "../components/Services.astro"
 import Professionals from "../components/Professionals.astro"
 import Gallery from "../components/Gallery.astro"
 import Booking from "../components/Booking.astro"
-import { salon } from "../config/salon"
-
-const { name, description, services, professionals, gallery } = salon
 ---
 
-<main class="pt-20">
+<MainLayout>
   <Hero />
-  <section id="servicos" class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-8">Nossos Serviços</h2>
-      <Services :services={services} />
-    </div>
-  </section>
-  <section id="profissionais" class="py-24 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-8">Nossos Profissionais</h2>
-      <Professionals :professionals={professionals} />
-    </div>
-  </section>
-  <section id="galeria" class="py-24">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-8">Galeria</h2>
-      <Gallery :gallery={gallery} />
-    </div>
-  </section>
-  <section id="contato" class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-8">Agende seu horário</h2>
-      <Booking />
-    </div>
-  </section>
-</main>
+  <Services />
+  <Professionals />
+  <Gallery />
+  <Booking />
+</MainLayout>
