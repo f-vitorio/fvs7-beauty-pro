@@ -1,10 +1,10 @@
 import type { GalleryItem } from "../config/salon"
 
 export const gallery: GalleryItem[] = [
-  { id: 1, url: "/gallery/hair1.jpg", caption: "Corte e finalização" },
-  { id: 2, url: "/gallery/color1.jpg", caption: "Coloração vibrante" },
-  { id: 3, url: "/gallery/treatment1.jpg", caption: "Resultado de tratamento" },
-  { id: 4, url: "/gallery/nails1.jpg", caption: "Design de unhas" },
-  { id: 5, url: "/gallery/eyebrows1.jpg", caption: "Sobrancelha perfeita" },
-  { id: 6, url: "/gallery/make1.jpg", caption: "Maquiagem elegante" },
+  { id: 1, url: "/gallery/cut.jpg", caption: "Corte e finalização" },
+  { id: 2, url: "/gallery/styling.jpg", caption: "Styling profissional" },
+  { id: 3, url: "/gallery/products.jpg", caption: "Produtos premium" },
+  { id: 4, url: "/gallery/space.jpg", caption: "Nosso espaço" },
+  { id: 5, url: "/gallery/care.jpg", caption: "Seu momento de cuidado" },
+  { id: 6, url: "/gallery/makeup.jpg", caption: "Maquiagem elegante" },
 ]

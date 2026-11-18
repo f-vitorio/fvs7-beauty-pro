@@ -12,7 +12,7 @@ import { salon } from "../config/salon"
     <div class="grid three">
       {salon.gallery.map((item) => (
         <a class="tile" href="/agendamento">
-          <img src={item.url.replace(".jpg", ".svg")} alt={item.caption} />
+          <img src={item.url} alt={item.caption} loading="lazy" />
           <b>{item.caption}</b>
         </a>
       ))}

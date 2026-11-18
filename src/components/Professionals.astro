@@ -12,7 +12,7 @@ import { salon } from "../config/salon"
     <div class="grid three">
       {salon.professionals.map((prof) => (
         <div class="card pro-card">
-          <img src={prof.image.replace(".jpg", ".svg")} alt={prof.name} />
+          <img src={prof.image} alt={prof.name} loading="lazy" />
           <div class="pro-body">
             <h3>{prof.name}</h3>
             <p class="pro-role">{prof.specialty}</p>
